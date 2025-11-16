@@ -1,6 +1,6 @@
 package com.epam.tests;
 
-import com.epam.driver.DriverSingleton;
+import com.epam.driver.DriverManager;
 import com.epam.models.User;
 import com.epam.service.UserCreator;
 import com.epam.utils.TestListener;
@@ -19,12 +19,12 @@ public abstract class CommonConditions {
 
     @BeforeClass
     public void setUp(){
-        driver = DriverSingleton.getDriver();
+        driver = DriverManager.getDriver();
         user = UserCreator.withAllCredentials();
     }
 
     @AfterClass(alwaysRun = true)
     public void stopBrowser(){
-        DriverSingleton.closeDriver();
+        DriverManager.closeDriver();
     }
 }

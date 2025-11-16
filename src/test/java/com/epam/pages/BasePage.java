@@ -1,6 +1,6 @@
 package com.epam.pages;
 
-import com.epam.driver.DriverSingleton;
+import com.epam.driver.DriverManager;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.NoSuchElementException;
@@ -22,7 +22,7 @@ public abstract class BasePage {
     protected final Logger logger = LogManager.getRootLogger();
 
     protected BasePage(WebDriver driver){
-        this.driver = DriverSingleton.getDriver();
+        this.driver = DriverManager.getDriver();
         PageFactory.initElements(driver, this);
     }
     protected void waitForElementToBeVisible(WebElement element) {

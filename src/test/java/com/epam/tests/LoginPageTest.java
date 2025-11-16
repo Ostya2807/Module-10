@@ -1,6 +1,6 @@
 package com.epam.tests;
 
-import com.epam.driver.DriverSingleton;
+import com.epam.driver.DriverManager;
 import com.epam.models.User;
 import com.epam.pages.LoginPage;
 import com.epam.service.UserCreator;
@@ -10,7 +10,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import java.time.Duration;
+
 
 public class LoginPageTest {
     private WebDriver driver;
@@ -20,7 +20,7 @@ public class LoginPageTest {
 
     @BeforeMethod
     public void loadApplication() {
-        driver = DriverSingleton.getDriver();
+        driver = DriverManager.getDriver();
         driver.get(URL);
         loginPage = new LoginPage(this.driver);
     }
@@ -28,7 +28,7 @@ public class LoginPageTest {
     @AfterMethod(alwaysRun = true)
     public void tearDown() {
         driver.quit();
-        DriverSingleton.closeDriver();
+        DriverManager.closeDriver();
     }
 
     @Test
