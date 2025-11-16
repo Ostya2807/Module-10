@@ -5,7 +5,6 @@ import com.epam.pages.LoginPage;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
-import java.time.Duration;
 
 
 public class InventoryPageTest extends CommonConditions {

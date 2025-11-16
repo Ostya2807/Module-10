@@ -4,15 +4,22 @@
         <Console name="Console" target="SYSTEM_OUT">
             <PatternLayout pattern="[%d{HH:mm:ss}] %-5level [%X{testName}] %c{1} - %msg%n"/>
         </Console>
-        <File name="FileLog" fileName="target/logs/test.log" append="false">
+
+        <RollingFile name="RollingFileLog"
+                     fileName="target/logs/test.log"
+                     filePattern="target/logs/test-%d{yyyy-MM-dd}.log"
+                     append="true">
             <PatternLayout pattern="[%d{HH:mm:ss}] %-5level [%X{testName}] %c{1} - %msg%n"/>
-        </File>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+            </Policies>
+        </RollingFile>
     </Appenders>
 
     <Loggers>
-        <Root level="info">
+        <Root level="all">
             <AppenderRef ref="Console"/>
-            <AppenderRef ref="FileLog"/>
+            <AppenderRef ref="RollingFileLog"/>
         </Root>
     </Loggers>
 </Configuration>

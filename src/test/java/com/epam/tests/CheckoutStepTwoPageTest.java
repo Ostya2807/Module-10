@@ -35,7 +35,7 @@ public class CheckoutStepTwoPageTest extends CommonConditions{
         inventoryPage.addItemsToCart();
         inventoryPage.openCartPageWithShoppingCartIcon();
         cartPage.clickToCheckout();
-        checkoutStepOnePage.fillAllCheckoutFields("Vass", "Jennő", "1032");
+        checkoutStepOnePage.fillCheckoutForm("Vass", "Jennő", "1032");
         Assert.assertEquals(checkoutStepTwoPage.getUrlOfThePage(), "https://www.saucedemo.com/checkout-step-two.html");
     }
 
