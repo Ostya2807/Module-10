@@ -30,53 +30,55 @@ public class CheckoutStepOnePage extends BasePage {
         PageFactory.initElements(driver, this);
     }
 
-    public void clickToContinueButton() {
+    public void enterFirstName(String firstName) {
+        waitForElementToBeVisible(firstNameInputField);
+        firstNameInputField.clear();
+        firstNameInputField.sendKeys(firstName);
+        logger.info("Entered first name: " + firstName);
+    }
+
+    public void enterLastName(String lastName) {
+        waitForElementToBeVisible(lastNameInputField);
+        lastNameInputField.clear();
+        lastNameInputField.sendKeys(lastName);
+        logger.info("Entered last name: " + lastName);
+    }
+
+    public void enterPostalCode(String postalCode) {
+        waitForElementToBeVisible(zipCodeInputField);
+        zipCodeInputField.clear();
+        zipCodeInputField.sendKeys(postalCode);
+        logger.info("Entered postal code: " + postalCode);
+    }
+
+    public void clickContinue() {
         waitForElementToBeVisible(continueButton);
         continueButton.click();
-        logger.info("Clicked to continue button!");
+        logger.info("Clicked Continue button");
+    }
+
+    public void fillCheckoutWithOnlyFirstName(String firstName) {
+        enterFirstName(firstName);
+    }
+
+
+    public void fillCheckoutWithFullName(String firstName, String lastName) {
+        enterFirstName(firstName);
+        enterLastName(lastName);
+    }
+
+
+    public void fillCheckoutForm(String firstName, String lastName, String postalCode) {
+        enterFirstName(firstName);
+        enterLastName(lastName);
+        enterPostalCode(postalCode);
     }
 
     public String getErrorMessage() {
         waitForElementToBeVisible(errorMessage);
-        logger.info("Error message: " + errorMessage);
-        return errorMessage.getText();
+        String text = errorMessage.getText();
+        logger.info("Error message: " + text);
+        return text;
     }
 
-    public void fillOnlyFirstName(String firstName) {
-        waitForElementToBeVisible(firstNameInputField);
-        waitForElementToBeVisible(continueButton);
-        firstNameInputField.clear();
-        firstNameInputField.sendKeys(firstName);
-        logger.info("Entering first name: " + firstName);
-        continueButton.click();
-        logger.info("Continue button clicked");
-
-    }
-
-    public void fillFirstAndLastName(String firstName, String lastName) {
-        waitForElementToBeVisible(firstNameInputField);
-        firstNameInputField.clear();
-        firstNameInputField.sendKeys(firstName);
-        logger.info("Entering first name: " + firstName);
-        lastNameInputField.clear();
-        lastNameInputField.sendKeys(lastName);
-        logger.info("Entering last name: " + lastName);
-        continueButton.click();
-        logger.info("Continue button clicked");
-    }
-
-    public void fillAllCheckoutFields(String firstName, String lastName, String postalCode) {
-        waitForElementToBeVisible(firstNameInputField);
-        firstNameInputField.clear();
-        firstNameInputField.sendKeys(firstName);
-        logger.info("Entering first name: " + firstName);
-        lastNameInputField.clear();
-        lastNameInputField.sendKeys(lastName);
-        logger.info("Entering last name: " + lastName);
-        zipCodeInputField.clear();
-        zipCodeInputField.sendKeys(postalCode);
-        logger.info("Entering postal code: " + postalCode);
-        continueButton.click();
-        logger.info("Continue button clicked");
-    }
 }

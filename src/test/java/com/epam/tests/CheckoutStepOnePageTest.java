@@ -35,8 +35,8 @@ public class CheckoutStepOnePageTest extends CommonConditions {
         inventoryPage.addItemsToCart();
         inventoryPage.openCartPageWithShoppingCartIcon();
         cartPage.clickToCheckout();
-        checkoutStepOnePage.fillOnlyFirstName("Vass");
-        checkoutStepOnePage.clickToContinueButton();
+        checkoutStepOnePage.fillCheckoutWithOnlyFirstName("Vass");
+        checkoutStepOnePage.clickContinue();
         Assert.assertEquals( checkoutStepOnePage.getErrorMessage(),"Error: Last Name is required");
     }
 
@@ -46,8 +46,8 @@ public class CheckoutStepOnePageTest extends CommonConditions {
         inventoryPage.addItemsToCart();
         inventoryPage.openCartPageWithShoppingCartIcon();
         cartPage.clickToCheckout();
-        checkoutStepOnePage.fillFirstAndLastName("Vass", "Jenő");
-        checkoutStepOnePage.clickToContinueButton();
+        checkoutStepOnePage.fillCheckoutWithFullName("Vass", "Jenő");
+        checkoutStepOnePage.clickContinue();
         Assert.assertEquals( checkoutStepOnePage.getErrorMessage(),"Error: Postal Code is required");
     }
 
@@ -57,7 +57,7 @@ public class CheckoutStepOnePageTest extends CommonConditions {
         inventoryPage.addItemsToCart();
         inventoryPage.openCartPageWithShoppingCartIcon();
         cartPage.clickToCheckout();
-        checkoutStepOnePage.fillAllCheckoutFields("Vass", "Jennő", "1032");
+        checkoutStepOnePage.fillCheckoutForm("Vass", "Jennő", "1032");
         Assert.assertEquals(driver.getCurrentUrl(),"https://www.saucedemo.com/checkout-step-two.html");
     }
 }

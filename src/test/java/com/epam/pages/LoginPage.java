@@ -5,11 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import org.apache.logging.log4j.Logger;
-import org.apache.logging.log4j.LogManager;
 
-
-public class LoginPage extends BasePage{
+public class LoginPage extends BasePage {
     @FindBy(id = "user-name")
     private WebElement usernameField;
     @FindBy(id = "password")
@@ -32,9 +29,5 @@ public class LoginPage extends BasePage{
         passwordField.sendKeys(user.getPassword());
         loginButton.click();
         logger.info("Logged in!");
-    }
-
-    public String getErrorMessage() {
-        return errorMessage.getText();
     }
 }
