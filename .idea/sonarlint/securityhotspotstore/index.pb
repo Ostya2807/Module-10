@@ -6,3 +6,7 @@
 :
 
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
+b
+2src/test/java/com/epam/driver/DriverSingleton.java,e\6\e64a969654cbaad611f13b32437846f02aa767ad
+Z
+*src/test/java/com/epam/pages/CartPage.java,0\9\095ccb91cd341556a4bbf569f4ad5a8ef4c3e6a9
