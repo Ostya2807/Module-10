@@ -1,6 +1,5 @@
 package com.epam.driver;
 
-import com.epam.driver.DriverFactory;
 import com.epam.driver.strategy.DriverStrategy;
 import com.epam.utils.HighlightListener;
 import org.openqa.selenium.WebDriver;

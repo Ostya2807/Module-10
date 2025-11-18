@@ -2,7 +2,7 @@
 <suite name="Smoke Suite">
     <test name="Smoke Tests">
         <classes>
-            <class name="com.epam.tests.CheckoutCompletePageTest"/>
+            <class name="com.epam.tests.CheckoutStepOnePageTest"/>
         </classes>
     </test>
 </suite>
