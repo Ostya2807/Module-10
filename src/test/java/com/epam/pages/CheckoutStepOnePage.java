@@ -57,17 +57,6 @@ public class CheckoutStepOnePage extends BasePage {
         logger.info("Clicked Continue button");
     }
 
-    public void fillCheckoutWithOnlyFirstName(String firstName) {
-        enterFirstName(firstName);
-    }
-
-
-    public void fillCheckoutWithFullName(String firstName, String lastName) {
-        enterFirstName(firstName);
-        enterLastName(lastName);
-    }
-
-
     public void fillCheckoutForm(String firstName, String lastName, String postalCode) {
         enterFirstName(firstName);
         enterLastName(lastName);

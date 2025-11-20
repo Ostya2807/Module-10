@@ -30,11 +30,12 @@ public class InventoryPage extends BasePage{
         logger.info("One item added to the cart!");
     }
 
-    public void addItemsToCart() {
+    public InventoryPage addItemsToCart() {
         addOneItemToCart();
         waitForElementToBeVisible(fleeceJacketAddToCartButton);
         fleeceJacketAddToCartButton.click();
         logger.info("Second item added to the cart!");
+        return new InventoryPage(driver);
     }
 
     public int getNumberOfCartItems() {
